@@ -121,7 +121,10 @@ def atualizar_perfil(
         if not db.query(Motorista).filter(
             Motorista.id == dados["motorista_id"]
         ).first():
-            raise HTTPException(status_code=404, detail="Motorista não encontrado")
+            raise HTTPException(
+                status_code=404,
+                detail="Motorista não encontrado"
+            )
 
     for campo, valor in dados.items():
         setattr(aluno, campo, valor)
